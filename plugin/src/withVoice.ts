@@ -6,7 +6,7 @@ import {
   withInfoPlist,
 } from '@expo/config-plugins';
 
-const pkg = require('@pisacode/voice/package.json');
+const pkg = require('@pisacode-voice/voice/package.json');
 
 const MICROPHONE = 'Allow $(PRODUCT_NAME) to access the microphone';
 
