@@ -55,10 +55,10 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
   }
 
   private void startListening(ReadableMap opts) {
-    if (speech != null) {
-      speech.destroy();
-      speech = null;
-    }
+    // if (speech != null) {
+    //   speech.destroy();
+    //   speech = null;
+    // }
     
     if(opts.hasKey("RECOGNIZER_ENGINE")) {
       switch (opts.getString("RECOGNIZER_ENGINE")) {
