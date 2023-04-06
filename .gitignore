@@ -1,0 +1,23 @@
+# macOS
+.DS_STORE
+
+node_modules
+*.class
+.idea
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+
+build/
+VoiceModule.iml
+yarn-error.log
+
+dist
+
+plugin/build
+
+# user-specific files
+local.properties

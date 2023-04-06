@@ -1,0 +1,54 @@
+{
+  "name": "@pisacode/voice",
+  "description": "Voice library",
+  "version": "1.0.0",
+  "author": "Pisacode <can@patika.dev>",
+  "private": false,
+  "homepage": "https://github.com/pisacode/react-native-voice",
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@tsconfig/node10": "^1.0.9",
+    "@types/invariant": "^2.2.35",
+    "@types/react-native": "^0.70.5",
+    "eslint": "^8.37.0",
+    "lint-staged": "^13.2.0",
+    "react": "18.1.0",
+    "react-native": "^0.70.5",
+    "semantic-release": "^21.0.1",
+    "typescript": "5.0.3"
+  },
+  "keywords": [
+    "android",
+    "ios",
+    "react-native",
+    "speech",
+    "voice"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "peerDependencies": {
+    "react-native": ">= 0.70.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pisacode/react-native-voice.git"
+  },
+  "scripts": {
+    "lint": "eslint src/*",
+    "semantic-release": "semantic-release",
+    "start": "yarn --cwd example start",
+    "ios": "yarn --cwd example ios",
+    "android": "yarn --cwd example android",
+    "prepare": "yarn build && yarn build:plugin",
+    "build": "tsc",
+    "dev-sync": "cp -r ./dist example/node_modules/@react-native-voice/voice",
+    "type-check": "tsc --project tsconfig.json --noEmit",
+    "build:plugin": "tsc --build plugin",
+    "lint:plugin": "eslint plugin/src/*"
+  },
+  "dependencies": {
+    "@expo/config-plugins": "^6.0.1",
+    "invariant": "^2.2.4"
+  }
+}
