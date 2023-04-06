@@ -73,7 +73,6 @@ class RCTVoice {
       );
     }
 
-    
     return new Promise<void>((resolve, reject) => {
       const callback = (error: any) => {
         if (error) {
