@@ -34,9 +34,9 @@ export type Props = {
  */
 const withIosPermissions: ConfigPlugin<Props> = (
   c,
-  { microphonePermission, speechRecognitionPermission } = {},
+  { microphonePermission, speechRecognitionPermission } = {}
 ) => {
-  return withInfoPlist(c, config => {
+  return withInfoPlist(c, (config) => {
     if (microphonePermission !== false) {
       config.modResults.NSMicrophoneUsageDescription =
         microphonePermission ||
@@ -57,33 +57,33 @@ const withIosPermissions: ConfigPlugin<Props> = (
 /**
  * Adds the following to the `AndroidManifest.xml`: `<uses-permission android:name="android.permission.RECORD_AUDIO" />`
  */
-const withAndroidPermissions: ConfigPlugin = config => {
+const withAndroidPermissions: ConfigPlugin = (config) => {
   return AndroidConfig.Permissions.withPermissions(config, [
     'android.permission.RECORD_AUDIO',
   ]);
 };
 
 const androidVoiceRecognitionIntent = {
-  'intent': {
-    'action': {
+  intent: {
+    action: {
       $: {
-        'android:name': "android.speech.RecognitionService",
+        'android:name': 'android.speech.RecognitionService',
       },
     },
-  }
-}
+  },
+};
 
-const withAndroidManifestFixForAndroid11: ConfigPlugin = config => {
-  return withAndroidManifest(config, async config => {
-    let androidManifest = config.modResults.manifest
+const withAndroidManifestFixForAndroid11: ConfigPlugin = (config) => {
+  return withAndroidManifest(config, async (config) => {
+    let androidManifest = config.modResults.manifest;
     // @ts-ignore
-    let queries = androidManifest["queries"] || []
-    queries.push(androidVoiceRecognitionIntent)
+    let queries = androidManifest['queries'] || [];
+    queries.push(androidVoiceRecognitionIntent);
     // @ts-ignore
-    androidManifest["queries"] = queries
-    return config
-  })
-}
+    androidManifest['queries'] = queries;
+    return config;
+  });
+};
 
 const withVoice: ConfigPlugin<Props | void> = (config, props = {}) => {
   const _props = props ? props : {};
@@ -91,7 +91,7 @@ const withVoice: ConfigPlugin<Props | void> = (config, props = {}) => {
   if (_props.microphonePermission !== false) {
     config = withAndroidPermissions(config);
   }
-  config = withAndroidManifestFixForAndroid11(config)
+  config = withAndroidManifestFixForAndroid11(config);
   return config;
 };
 
