@@ -13,6 +13,8 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import androidx.annotation.NonNull;
 import android.util.Log;
+import android.media.AudioManager;
+import android.content.Context;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
@@ -55,10 +57,10 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
   }
 
   private void startListening(ReadableMap opts) {
-    // if (speech != null) {
-    //   speech.destroy();
-    //   speech = null;
-    // }
+    if (speech != null) {
+      speech.destroy();
+      speech = null;
+    }
     
     if(opts.hasKey("RECOGNIZER_ENGINE")) {
       switch (opts.getString("RECOGNIZER_ENGINE")) {
@@ -122,6 +124,8 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
       }
     }
 
+    AudioManager mAudioManager = (AudioManager) this.reactContext.getSystemService(Context.AUDIO_SERVICE);
+    mAudioManager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_MUTE, 0);
     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getLocale(this.locale));
     speech.startListening(intent);
   }
