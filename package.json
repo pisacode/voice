@@ -1,7 +1,7 @@
 {
   "name": "@pisacode-voice/voice",
   "description": "Voice library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Pisacode <can@patika.dev>",
   "private": false,
   "homepage": "https://github.com/pisacode/voice",
