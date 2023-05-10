@@ -349,8 +349,10 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
     WritableArray arr = Arguments.createArray();
 
     ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-    for (String result : matches) {
-      arr.pushString(result);
+    if (matches != null) {
+      for (String result : matches) {
+        arr.pushString(result);
+      }
     }
 
     WritableMap event = Arguments.createMap();
