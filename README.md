@@ -4,7 +4,7 @@ This repository is an experimental version of React Native Voice, which is a spe
 
 Please note that this repository is not officially supported and may contain bugs or issues. Use it at your own risk.
 
-The usage of this library is the same as the original React Native Voice library. Please refer to the official documentation for instructions on how to use it. (React Native Voice)[https://github.com/react-native-voice/voice]
+The usage of this library is the same as the original React Native Voice library. Please refer to the official documentation for instructions on how to use it. (https://github.com/react-native-voice/voice)[React Native Voice]
 
 # Contributing
 
